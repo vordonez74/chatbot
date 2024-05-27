@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación del Bot Conversacional</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .content {
+            margin-top: 20px;
+        }
+        .content img {
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .content .qr {
+            margin-top: 20px;
+        }
+        .footer {
+            margin-top: 20px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>FUNDAMENTOS DE INTELIGENCIA ARTIFICIAL</h1>
+        <div class="content">
+            <h2>Trabajo: Trabajo Práctico Unidad 2: SISTEMAS BASADOS EN CONOCIMIENTO</h2>
+            <p>Bots conversacional inteligente con estructura de SED (Sistema Experto Difuso)</p>
+            <p>Docente: Ing. Mario Figueroa de la Cruz</p>
+            <p>Alumno: Victor Alejandro Ordoñez</p>
+            <div class="qr">
+	    <img src="{{ url_for('static', filename='images/QR2.png') }}" alt="QR Code for Telegram">
+                <p>Escanea el código QR para acceder al bot en Telegram</p>
+            </div>
+        </div>
+        <div class="footer">
+            &copy; 2024 - Victor Alejandro Ordoñez
+        </div>
+    </div>
+</body>
+</html>
