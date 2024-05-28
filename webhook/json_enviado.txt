@@ -1,0 +1,29 @@
+{
+  "responseId": "70085696-fe63-4f06-a9ae-9c5e84cc7a9c-896d2846",
+  "queryResult": {
+    "queryText": "1000889",
+    "parameters": {
+      "number": 1,
+      "tipoMaterial": [
+        "1000889"
+      ]
+    },
+    "allRequiredParamsPresent": true,
+    "fulfillmentText": "Usted seleccionó el material 1000889.",
+    "fulfillmentMessages": [
+      {
+        "text": {
+          "text": [
+            "Usted seleccionó el material 1000889."
+          ]
+        }
+      }
+    ],
+    "intent": {
+      "name": "projects/abastbot-ptca/agent/intents/0f6fdfe1-0488-4c8a-ac4b-425d3ce18e2e",
+      "displayName": "Reponer"
+    },
+    "intentDetectionConfidence": 1,
+    "languageCode": "es"
+  }
+}

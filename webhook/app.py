@@ -2,12 +2,42 @@ from flask import Flask, request, jsonify, make_response, render_template
 from flask_sqlalchemy import SQLAlchemy 
 from os import environ
 from config import Config
+from skfuzzy import control as ctrl
+import numpy as np
+import skfuzzy as fuzz
+
+
 
 app = Flask(__name__)
 app.config.from_object(Config)
 
 db = SQLAlchemy(app)
-
+inventario = {
+    "1000889": {
+        "material": "1000889",
+        "stock_actual": 30,
+        "lead_time": 10,
+        "consumo_promedio_diario": 20
+    },
+    "1000010": {
+        "material": "1000010",
+        "stock_actual": 5,
+        "lead_time": 15,
+        "consumo_promedio_diario": 38
+    },
+    "1000011": {
+        "material": "1000011",
+        "stock_actual": 80,
+        "lead_time": 60,
+        "consumo_promedio_diario": 12
+    },
+    "1000158": {
+        "material": "1000158",
+        "stock_actual": 30,
+        "lead_time": 60,
+        "consumo_promedio_diario": 26
+}
+                        }
 class User(db.Model):
     __tablename__='users'
 
@@ -28,14 +58,19 @@ def principal():
 
 @app.route('/webhook', methods=['GET'])
 def test():
-    return make_response("hola desde webhook",200)
+    return make_response(f"El stock actual es {inventario['1000158']['stock_actual']}",200)
 
 @app.route('/webhook',methods=['POST'])
 def dialogFlow():
-    dato = request.get_json()
-    print('algo mando')
-    print(dato)
-    return jsonify(dato)
+    data = request.get_json()
+    valor = 0
+    if data['queryResult']['intent']['displayName'] == 'Reponer':
+        material = data['queryResult']['parameters']['tipoMaterial']
+        valor = 10
+        responseData = {
+            "fulfillmentText":f"Se debe reponer la cantidad de {valor}"
+            }
+    return jsonify(responseData)
 
 
 
